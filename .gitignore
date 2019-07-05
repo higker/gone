@@ -16,9 +16,6 @@
 # Others
 
 .gradle
-/.idea/
 /.idea
-.idea
-.idea/*
 .gitignore
 
