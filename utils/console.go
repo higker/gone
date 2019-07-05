@@ -24,6 +24,7 @@ func Info(logStr string) {
 }
 func Error(logStr string) {
 	fmt.Printf("\033[41;30m 「Fail」 \033[0m \033[31m %s --> %s \033[0m \n", NowTimeStr(), logStr)
+	logError.Print(logStr)
 }
 
 
