@@ -6,16 +6,16 @@ import "fmt"
  *
  * Create BY YooDing
  *
- * Des: gone application main function
+ * Des: gone banner
  *
  * Time: 2019/7/5 1:50 PM.
  *
  * <a href="https://github.com/YooDing/gone">Github<a>
  */
 const (
-	version     = "0.0.5"
-	github      = "https://github.com/YooDing/gone"
-	description = "Gone, a multi-functional efficient operation program under Centos written in Go language."
+	Version     = "0.0.5"
+	Github      = "https://github.com/YooDing/gone"
+	Description = "Gone, a multi-functional efficient operation program under Centos written in Go language."
 	bannerStr   = "\033[34m ___   __   __ _  ____ \n" +
 		" / __) /  \\ (  ( \\(  __)\n" +
 		"( (_ \\(  O )/    / ) _) \n" +
