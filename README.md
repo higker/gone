@@ -1,8 +1,8 @@
 <p align="center">
     <a href="https://github.com/YooDing/"><img src="https://image.flaticon.com/icons/png/512/232/232412.png" width="150"/></a>
-    <h1 align="center">JTesseract</h1>
+    <h1 align="center">Gone</h1>
 </p>
-<p align="center"><code>Gone</code>一个使用Go语言编写的Centos下多功能高效运维程序😋</p>
+<p align="center"><code>Gone</code>一个使用<code>Go</code>语言编写的<code>Centos</code>下多功能高效运维程序😋</p>
 
 <p align="center">
     🤩 <a href="https://github.com/YooDing/gone" target="_blank">仓库地址</a> | 
