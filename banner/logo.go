@@ -19,10 +19,10 @@ const (
 	bannerStr   = "\033[34m ___   __   __ _  ____ \n" +
 		" / __) /  \\ (  ( \\(  __)\n" +
 		"( (_ \\(  O )/    / ) _) \n" +
-		" \\___/ \\__/ \\_)__)(____)\033[0m \n "
+		" \\___/ \\__/ \\_)__)(____)\033[0m \r\n "
 )
-
+/*print logo*/
 func Logo() {
 	fmt.Print(bannerStr)
-	fmt.Printf("\033[42;34m 「welcome using Gone」 \033[0m \033[32m version:%s  \033[0m \n", version)
+	fmt.Printf("\033[42;34m 「welcome using Gone」 \033[0m \033[32m version:%s  \033[0m \n", Version)
 }
