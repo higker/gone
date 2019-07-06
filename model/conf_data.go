@@ -12,13 +12,14 @@ package model
  *
  * <a href="https://github.com/YooDing/gone">Github</a>
  */
-
-type ZipUrl struct {
-	ZipName string
-	ZipPath string
-}
+//
+//type ZipUrl struct {
+//	ZipName string
+//	ZipPath string
+//}
 
 type ConfigData struct {
 	Version string
-	ZipUrl []ZipUrl
+	Jdk string
+	tomcat string
 }

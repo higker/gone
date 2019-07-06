@@ -1,7 +1,5 @@
 {
-  "version":"0.0.6",
-  "zipurl":[
-    {"zipname":"jdk1.8","zippath":"www.qq.com"},
-    {"zipname":"tomcat","zippath":"www.baidu.com"}
-  ]
+  "version": "0.0.6",
+  "jdk1.8": "www.qq.com",
+  "tomcat": "www.baidu.com"
 }
