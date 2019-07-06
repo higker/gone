@@ -15,7 +15,10 @@ import (
 	"gone/utils"
 	"os"
 
+	"net/http"
+	"io/ioutil"
 )
+
 //
 //type ZipUrl struct {
 //	ZipName string
@@ -38,16 +41,8 @@ func init() {
 		"jdk": "www.qq.com",
         "tomcat": "www.baidu.com"
 	}`
-	//buf := bytes.NewBuffer([]byte(str))
-	//js, _ := simplejson.NewFromReader(buf)
-	//fmt.Println(js.Get("version").String())
-	res, _ = simplejson.NewJson([]byte(str))
-	version, _ := res.Get("version").String()
-	jdk, _ := res.Get("jdk").String()
-	tomcat, _ := res.Get("tomcat").String()
-	Server = ConfigData{version, jdk, tomcat}
+	Server = parsing(str)
 }
-
 func parsing(jsonStr string) ConfigData {
 	res, _ = simplejson.NewJson([]byte(jsonStr))
 	version, err := res.Get("version").String()
@@ -59,4 +54,18 @@ func parsing(jsonStr string) ConfigData {
 		os.Exit(1)
 	}
 	return ConfigData{version, jdk, tomcat}
+}
+func GetJson() string {
+	//send get request
+	resp, err := http.Get("https://raw.githubusercontent.com/YooDing/gone/master/config.json")
+	if err != nil {
+		utils.Error("连接远程服务器失败!")
+	}
+	//The last execution
+	defer  resp.Body.Close()
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		utils.Error("解析最新资源失败!")
+	}
+	return string(body)
 }

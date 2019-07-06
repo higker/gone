@@ -23,5 +23,6 @@ func main() {
 	//utils.Done("完毕")
 	//utils.Info("信息")
 	utils.Error("错误")
-	utils.Info(model.Server)
+	utils.Info(model.Server.Jdk)
+	utils.Done(model.GetJson())
 }
