@@ -4,7 +4,6 @@ import (
 	"gone/utils"
 	"gone/model"
 	"os"
-	"os/exec"
 )
 
 /**
@@ -20,7 +19,7 @@ import (
 
 const (
 	profile = "/etc/profile"
-	template = "export JAVA_HOME=/usr/local/jdk-12.0.1 export PATH=.:$JAVA_HOME/bin:$PATH export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar"
+	template = "\nexport JAVA_HOME=/usr/local/jdk-12.0.1\nexport PATH=.:$JAVA_HOME/bin:$PATH\nexport CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar\n"
 )
 
 func JDK() {
@@ -40,10 +39,10 @@ func JDK() {
 		utils.Error("配置JDK出错~请稍后重试!")
 		os.Exit(1)
 	}
-	cmdErr := exec.Command("source","/etc/profile").Start()
-	if cmdErr != nil {
-		utils.Error("刷新/etc/profile文件失败!请使用你手动刷新:source /etc/profile")
-		os.Exit(1)
-	}
-	utils.Done("JDK配置完成,请使用java -version查看相关信息.")
+	//cmd := exec.Command("source","/etc/profile")
+	//if cmd.Run() != nil {
+	//	utils.Error("刷新/etc/profile文件失败!")
+	//	os.Exit(1)
+	//}
+	utils.Done("JDK配置完成,请使用你手动刷新:source /etc/profile,请使用java -version查看相关信息.")
 }
