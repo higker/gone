@@ -36,11 +36,8 @@ var (
 )
 
 func init() {
-	str := `{
-		"version": "0.0.6",
-		"jdk": "www.qq.com",
-        "tomcat": "www.baidu.com"
-	}`
+	//init model
+	str := getJson()
 	Server = parsing(str)
 }
 func parsing(jsonStr string) ConfigData {
@@ -55,17 +52,21 @@ func parsing(jsonStr string) ConfigData {
 	}
 	return ConfigData{version, jdk, tomcat}
 }
-func GetJson() string {
+func getJson() string {
 	//send get request
 	resp, err := http.Get("https://raw.githubusercontent.com/YooDing/gone/master/config.json")
 	if err != nil {
-		utils.Error("连接远程服务器失败!")
+		utils.Error("连接远程服务器失败!请你稍后重试！")
+		//发生错误程序退出
+		os.Exit(1)
 	}
 	//The last execution
 	defer  resp.Body.Close()
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
-		utils.Error("解析最新资源失败!")
+		utils.Error("解析最新资源失败!请你稍后重试！")
+		//发生错误程序退出
+		os.Exit(1)
 	}
 	return string(body)
 }
