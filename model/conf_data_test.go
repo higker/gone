@@ -1,30 +1,22 @@
-package main
+package model
 
 import (
-	"gone/component"
-	"gone/utils"
-	"encoding/json"
 	"fmt"
-	"gone/model"
+	"encoding/json"
 )
 
 /**
  *
  * Create BY YooDing
  *
- * Des: application main function
+ * Des: test01
  *
- * Time: 2019年07月05日13:28:19
+ * Time: 2019/7/6 11:31 AM.
  *
- * <a href="https://github.com/YooDing/gone">Github<a>
+ * <a href="https://github.com/YooDing/gone">Github</a>
  */
 func main() {
-	component.Menus()
-
-	//utils.Done("完毕")
-	//utils.Info("信息")
-	utils.Error("错误")
-	var c model.ConfigData
+	var c ConfigData
 	str := `{
   "Version":"0.0.6",
   "Zipurl":[
