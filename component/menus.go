@@ -1,8 +1,11 @@
 package component
 
 import (
-	"gone/banner"
 	"fmt"
+	"bufio"
+	"os"
+	"unicode"
+	"gone/utils"
 )
 
 /**
@@ -16,11 +19,31 @@ import (
  * <a href="https://github.com/YooDing/gone">Github<a>
  */
 func Menus() {
-	banner.Logo()
+
 	fmt.Println("\n 输入数字选择功能：\n")
-	fmt.Println(" 1 - 软件列表 \n")
-	fmt.Println(" 2 - 常用工具 \n")
+	fmt.Println(" 1 - 安装JDK \n")
+	fmt.Println(" 2 - 安装Tomcat \n")
 	fmt.Println(" 3 - 加速算法 \n")
 	fmt.Println(" 0 - 退出程序 \n")
-	fmt.Println(" 输入数字选择功能：")
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("选择功能: ")
+	text, _ := reader.ReadString('\n')
+	err := unicode.IsDigit([]rune(text)[0])
+
+	if err != true {
+		utils.Warning("请输入正确序号！1")
+		Menus()
+	}
+	switch text {
+	case "1":
+		fmt.Println(text)
+		JDK()
+	case "2":
+		fmt.Println(text)
+	default:
+		fmt.Println(text)
+		utils.Warning("请输入正确序号！")
+		Menus()
+	}
+
 }

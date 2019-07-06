@@ -1,10 +1,11 @@
 package main
 
 import (
-	"gone/component"
 	"gone/utils"
 	"runtime"
 	"gone/model"
+	"gone/component"
+	"gone/banner"
 )
 
 /**
@@ -24,14 +25,17 @@ func main() {
 	//utils.Error("错误")
 	utils.Info(model.Server.Jdk)
 
+
+
 }
 
 func init() {
 
-	str := "\r\n export JAVA_HOME=/usr/local/jdk1.8.0_144 \r\n export PATH=.:$JAVA_HOME/bin:$PATH \r\n export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar"
+	//str := "\r\n export JAVA_HOME=/usr/local/jdk1.8.0_144 \r\n export PATH=.:$JAVA_HOME/bin:$PATH \r\n export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar"
+	banner.Logo()
 	component.Menus()
-	utils.AppendStrToFile("/Users/jdode/Desktop/login.jsp",str)
-	utils.DownloadFile("https://m7.music.126.net/20190706150200/8154e950dde9990b0a1c53e524d968cc/ymusic/0f5e/070b/0e5e/84f91eaa3f0a04eba0a7944662ed4af5.mp3")
+	//utils.AppendStrToFile("/Users/jdode/Desktop/login.jsp",str)
+	//utils.DownloadFile("https://m7.music.126.net/20190706150200/8154e950dde9990b0a1c53e524d968cc/ymusic/0f5e/070b/0e5e/84f91eaa3f0a04eba0a7944662ed4af5.mp3")
 	//checkSys()
 }
 
