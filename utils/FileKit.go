@@ -18,7 +18,7 @@ import (
  *
  * <a href="https://github.com/YooDing/gone">Github</a>
  */
-func appendToFile(fileName string, content string) error {
+func AppendStrToFile(fileName string, content string) error {
 	// 以只写的模式，打开文件
 	f, err := os.OpenFile(fileName, os.O_WRONLY, 0644)
 	if err != nil {
@@ -45,7 +45,6 @@ func DownloadFile(url string) error {
 	if err != nil {
 		return err
 	}
-
 	//创建文件
 	file, err := os.Create("./temp/"+path.Base(url))
 	if err != nil {
