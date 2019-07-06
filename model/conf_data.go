@@ -37,8 +37,7 @@ var (
 
 func init() {
 	//init model
-	str := getJson()
-	Server = parsing(str)
+	Server = parsing(getJson())
 }
 func parsing(jsonStr string) ConfigData {
 	res, _ = simplejson.NewJson([]byte(jsonStr))
