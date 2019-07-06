@@ -19,7 +19,7 @@ import (
 
 const (
 	profile = "/etc/profile"
-	template = "\nexport JAVA_HOME=/usr/local/jdk-12.0.1\nexport PATH=.:$JAVA_HOME/bin:$PATH\nexport CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar\n"
+	template = "\n#this using gone configuration\n#https://github.com/YooDing/gone\nexport JAVA_HOME=/usr/local/jdk-12.0.1\nexport PATH=.:$JAVA_HOME/bin:$PATH\nexport CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar\n"
 )
 
 func JDK() {
