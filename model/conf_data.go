@@ -14,7 +14,6 @@ import (
 	"github.com/bitly/go-simplejson"
 	"gone/utils"
 	"os"
-
 	"net/http"
 	"io/ioutil"
 )
@@ -60,7 +59,7 @@ func getJson() string {
 		os.Exit(1)
 	}
 	//The last execution
-	defer  resp.Body.Close()
+	defer resp.Body.Close()
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
 		utils.Error("解析最新资源失败!请你稍后重试！")
