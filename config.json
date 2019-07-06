@@ -1,5 +1,5 @@
 {
   "version": "0.0.6",
-  "jdk": "http://120.79.15.136/jdk-12.0.1.zip",
+  "jdk": "https://gone-1253532725.cos.ap-chengdu.myqcloud.com/jdk-12.0.1.zip",
   "tomcat": "www.baidu.com"
 }

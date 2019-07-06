@@ -35,7 +35,7 @@ func AppendStrToFile(fileName string, content string) error {
 
 func DownloadFile(url string) error {
 	var (
-		buf     = make([]byte, 32*1024)
+		buf     = make([]byte, 32*1024*2)
 		written int64
 	)
 	//创建一个http client
