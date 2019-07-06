@@ -6,6 +6,7 @@ import (
 	"gone/model"
 	"gone/component"
 	"gone/banner"
+	"os"
 )
 
 /**
@@ -30,7 +31,8 @@ func main() {
 }
 
 func init() {
-
+	os.Create("./logs/")
+	os.Create("./temp")
 	//str := "\r\n export JAVA_HOME=/usr/local/jdk1.8.0_144 \r\n export PATH=.:$JAVA_HOME/bin:$PATH \r\n export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar"
 	banner.Logo()
 	component.Menus()

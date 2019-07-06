@@ -20,13 +20,19 @@ import (
 
 const (
 	profile = "/etc/profile"
-	template = "\r\n export JAVA_HOME=/usr/local/jdk-12.0.1 \r\n export PATH=.:$JAVA_HOME/bin:$PATH \r\n export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar"
+	template = "export JAVA_HOME=/usr/local/jdk-12.0.1 export PATH=.:$JAVA_HOME/bin:$PATH export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar"
 )
 
 func JDK() {
+	utils.Info("开始从远程服务器拉取资源文件:"+model.Server.Jdk)
 	err := utils.DownloadFile(model.Server.Jdk)
 	if err != nil {
-		utils.Error("配置JDK出错~请稍后重试!")
+		utils.Error("下载JDK安装包出错~请稍后重试!")
+		os.Exit(1)
+	}
+	unErr:=utils.Unzip("./temp/jdk-12.0.1.zip","/usr/local/")
+	if unErr != nil {
+		utils.Error("解压JDK出错~请稍后重试!")
 		os.Exit(1)
 	}
 	error := utils.AppendStrToFile(profile,template)
