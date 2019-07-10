@@ -5,7 +5,8 @@ import (
 	"runtime"
 	"gone/model"
 	"os"
-	"fmt"
+	"gone/component"
+	"gone/banner"
 )
 
 /**
@@ -22,21 +23,19 @@ func main() {
 
 	utils.Info(model.Server.Jdk)
 
-	err, out, _ :=  utils.Shellout("who")
-	if err != nil {
-		utils.Error("失败!")
-		os.Exit(1)
-	}else {
-		fmt.Println(out)
-	}
+
+	//utils.SleepInfo(20,"秒后系统自动重启")
+
+	//utils.BarDownload("")
+
 
 }
 
 func init() {
-	//os.Create("./logs/")
-	//os.Create("./temp")
-	//banner.Logo()
-	//component.Menus()
+	banner.Logo()
+	component.Menus()
+	os.Chdir("./logs")
+	os.Chdir("./temp")
 }
 
 func checkSys() {

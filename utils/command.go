@@ -16,27 +16,27 @@ import (
  * <a href="https://github.com/YooDing/gone">Github</a>
  */
 const (
-	ShellToUse = "bash"
+	bash = "bash"
+	cmd = "cmd"
 )
 
-func Shellout(command string) (error, string, string) {
+func ShellOut(command string) (error, string, string) {
 	var stdout bytes.Buffer
 	var stderr bytes.Buffer
-	cmd := exec.Command(ShellToUse, "-c", command)
+	cmd := exec.Command(bash, "-c", command)
 	cmd.Stdout = &stdout
 	cmd.Stderr = &stderr
 	err := cmd.Run()
 	return err, stdout.String(), stderr.String()
 }
 
-func Shell(command string) error{
-	cmd := exec.Command(ShellToUse, "-c", command)
-	return cmd.Run()
+func ExeShell(command string) error{
+	return exec.Command(bash, "-c", command).Run()
 }
 
-func Cmd(cmd string, shell bool) []byte {
+func CmdOut(cmd string, shell bool) []byte {
 	if shell {
-		out, err := exec.Command("bash", "-c", cmd).Output()
+		out, err := exec.Command(bash, "-c", cmd).Output()
 		if err != nil {
 			panic("some error found")
 		}
@@ -48,4 +48,8 @@ func Cmd(cmd string, shell bool) []byte {
 		}
 		return out
 	}
+}
+
+func ExeCmd(command string) error {
+	return exec.Command(cmd,"-c",command).Run()
 }

@@ -6,6 +6,8 @@ import (
 	"net/http"
 	"io"
 	"errors"
+
+	"github.com/schollz/progressbar"
 )
 
 /**
@@ -32,6 +34,27 @@ func AppendStrToFile(fileName string, content string) error {
 	defer f.Close()
 	return err
 }
+
+func BarDownload(urlToGet string){
+	req, _ := http.NewRequest("GET", urlToGet, nil)
+	resp, reqErr := http.DefaultClient.Do(req)
+	defer resp.Body.Close()
+	var out io.Writer
+	f, openErr:= os.OpenFile("./temp/"+path.Base(urlToGet), os.O_CREATE|os.O_WRONLY, 0644)
+	out = f
+	defer f.Close()
+	if reqErr != nil || openErr != nil {
+		Error("download file error!")
+		os.Exit(1)
+	}
+	bar := progressbar.NewOptions(
+		int(resp.ContentLength),
+		progressbar.OptionSetBytes(int(resp.ContentLength)),
+	)
+	out = io.MultiWriter(out, bar)
+	io.Copy(out, resp.Body)
+}
+
 
 func DownloadFile(url string) error {
 	var (

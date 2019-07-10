@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"time"
 	"strconv"
+	"os"
 )
 
 /**
@@ -34,4 +35,12 @@ func Warning(logStr string) {
 func NowTimeStr() (timeStr string) {
 	now := time.Now()
 	return strconv.Itoa(now.Year()) + "-" + now.Month().String() + "-" + strconv.Itoa(now.Day()) + " " + strconv.Itoa(now.Hour()) + ":" + strconv.Itoa(now.Minute()) + ":" + strconv.Itoa(now.Second())
+}
+
+func SleepInfo(s int,info string){
+	for i := s; i > 0; i-- {
+		time.Sleep(1000 * time.Millisecond)
+		fmt.Printf("\r \033[41;30m%d\033[0m %s.", i,info)
+		os.Stdout.Sync()
+	}
 }

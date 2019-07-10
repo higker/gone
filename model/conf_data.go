@@ -26,7 +26,9 @@ import (
 type ConfigData struct {
 	Version string
 	Jdk     string
-	tomcat  string
+	Tomcat  string
+	Tcpa_package string
+	Tcpa_kernel_bash string
 }
 
 var (
@@ -43,12 +45,14 @@ func parsing(jsonStr string) ConfigData {
 	version, err := res.Get("version").String()
 	jdk, _ := res.Get("jdk").String()
 	tomcat, _ := res.Get("tomcat").String()
+	tcpa_package, _ := res.Get("tcpa_package").String()
+	tcpa_kernel_bash, _ := res.Get("tcpa_kernel_bash").String()
 	if err != nil {
 		utils.Error("程序解析远程仓库配置json文件失败！！！！请你稍后重试！")
 		//发生错误程序退出
 		os.Exit(1)
 	}
-	return ConfigData{version, jdk, tomcat}
+	return ConfigData{version, jdk, tomcat,tcpa_package,tcpa_kernel_bash}
 }
 func getJson() string {
 	//send get request

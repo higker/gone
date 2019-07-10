@@ -1,5 +1,7 @@
 {
   "version": "0.0.6",
-  "jdk": "https://gone-1253532725.cos.ap-chengdu.myqcloud.com/jdk-12.0.1.zip",
-  "tomcat": "www.baidu.com"
+  "jdk": "http://120.79.15.136/jdk-12.0.1.zip",
+  "tomcat": "www.baidu.com",
+  "tcpa_kernel_bash":"http://120.79.15.136/tcpa_packets.zip",
+  "tcpa_package":"rpm -ivh http://down.08mb.com/tcp_opz/tcpa/kernel-3.10.0-693.5.2.tcpa06.tl2.x86_64.rpm --force"
 }
