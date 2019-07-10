@@ -13,7 +13,7 @@ import "fmt"
  * <a href="https://github.com/YooDing/gone">Github<a>
  */
 const (
-	Version     = "0.0.5 (beta)"
+	Version     = "0.0.8 (beta)"
 	Github      = "https://github.com/YooDing/gone"
 	Description = "Gone, a multi-functional efficient operation program under Centos written in Go language."
 	bannerStr   = "\033[34m ___   __   __ _  ____ \n" +

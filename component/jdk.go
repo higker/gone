@@ -24,11 +24,7 @@ const (
 
 func JDK() {
 	utils.Info("开始从远程服务器拉取资源文件:"+model.Server.Jdk)
-	err := utils.DownloadFile(model.Server.Jdk)
-	if err != nil {
-		utils.Error("下载JDK安装包出错~请稍后重试!")
-		os.Exit(1)
-	}
+	utils.BarDownload(model.Server.Jdk)
 	unErr:=utils.Unzip("./temp/jdk-12.0.1.zip","/usr/local/")
 	if unErr != nil {
 		utils.Error("解压JDK出错~请稍后重试!")
@@ -39,10 +35,11 @@ func JDK() {
 		utils.Error("配置JDK出错~请稍后重试!")
 		os.Exit(1)
 	}
-	//cmd := exec.Command("source","/etc/profile")
-	//if cmd.Run() != nil {
-	//	utils.Error("刷新/etc/profile文件失败!")
-	//	os.Exit(1)
-	//}
-	utils.Done("JDK配置完成,请使用你手动刷新:source /etc/profile,请使用java -version查看相关信息.")
+	cmd := utils.ExeShell("source /etc/profile")
+	// := exec.Command("source","/etc/profile")
+	if cmd != nil {
+		utils.Error("刷新/etc/profile文件失败!")
+		//os.Exit(1)
+	}
+	utils.Done("/nJDK配置完成,请使用你手动刷新:source /etc/profile,请使用java -version查看相关信息.")
 }

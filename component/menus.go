@@ -34,6 +34,8 @@ func Menus() {
 		JDK()
 	case "2":
 		fmt.Println("tomcat")
+	case "3":
+		TCPA()
 	default:
 		fmt.Println(input)
 		utils.Warning("请输入正确序号！")

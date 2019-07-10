@@ -3,7 +3,6 @@ package main
 import (
 	"gone/utils"
 	"runtime"
-	"gone/model"
 	"os"
 	"gone/component"
 	"gone/banner"
@@ -21,7 +20,7 @@ import (
  */
 func main() {
 
-	utils.Info(model.Server.Jdk)
+	//utils.Info(model.Server.Jdk)
 
 
 	//utils.SleepInfo(20,"秒后系统自动重启")
